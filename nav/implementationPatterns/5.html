@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/static/img/favicon.ico" />
+  <title>Add reCAPTCHA to default Django admin login form - Stack Problems</title>
+  <meta name="author" content="Agus Makmun" />
+  <meta name="description" content="Add reCAPTCHA to default Django admin login form" />
+  <meta name="keywords" content="Add reCAPTCHA to default Django admin login form, Stack Problems, python, django, security" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+  <meta content="1749788565247320" property="fb:app_id">
+  <meta content="Stack Problems" property="og:site_name">
+
+  <meta content="Add reCAPTCHA to default Django admin login form" property="og:title">
+  <meta content="article" property="og:type">
+  <meta content="My Personal Stack Problems" property="og:description">
+
+  <meta content="http://localhost:4000/python/django/security/2021/10/06/add-recaptcha-to-default-django-admin-login-form.html" property="og:url">
+
+  <meta content="2021-10-06T22:41:00+09:00" property="article:published_time">
+  <meta content="http://localhost:4000/about/" property="article:author">
+  <meta content="python" property="article:section">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@github.io">
+  <meta name="twitter:creator" content="@github.io">
+  <meta name="twitter:title" content="Add reCAPTCHA to default Django admin login form">
+  <meta name="twitter:url" content="http://localhost:4000/python/django/security/2021/10/06/add-recaptcha-to-default-django-admin-login-form.html">
+  <meta name="twitter:description" content="My Personal Stack Problems">
+
+  <!-- Font awesome icons -->
+  <link href="/static/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/static/css/syntax.css">
+  <!-- Bootstrap core CSS -->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300italic,300,400italic,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/static/css/super-search.css">
+  <link rel="stylesheet" href="/static/css/thickbox.css">
+  <link rel="stylesheet" href="/static/css/projects.css">
+  <link rel="stylesheet" href="/static/css/main.css">
+
+
+</head>
+<body>
+<div class="container">
+  <div class="col-sm-3">
+    <div class="fixed-condition">
+      <image src="/static/img/profile.jpg" width="100px"></image>
+      <h1 class="author-name"><a href="https://github.com/hyeindev" style="color: #0d3b24">@Hyeindev</a></h1>
+      <div class="profile-about">
+        Interested in <br> java,springboot,gradle,jpa,mybatis,javascript,jsp
+      </div>
+      <!-- 깃허브,트위터,페이스북 등-->
+      <div class="social">
+        <ul>
+          <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="#" target="_blank"><i class="fa fa-stack-exchange"></i></a></li>
+          <li><a href="https://github.com/hyeindev" target="_blank"><i class="fa fa-github"></i></a></li>
+        </ul>
+      </div>
+      <div class="search" id="js-search">
+        <!-- 검색 인풋박스 -->
+        <!--   <input type="text" placeholder="(sitemap)~$ type to search" class="search__input form-control" id="js-search__input">
+           <ul class="search__results" id="js-search__results">
+           </ul>-->
+      </div>
+      <hr />
+      <ul class="sidebar-nav">
+        <strong>Read</strong>
+        <li ><a href="../about_read.html" style="color: #0d3b24; font-size: 15px">About</a></li>
+        <li ><a href="../implementationPatterns.html" style="color: #0d3b24; font-size: 13px">켄트 벡의 구현 패턴</a></li>
+        <li  class="hide"><a class="about" href="/projects">My Projects</a></li>
+        <li  class="hide"><a class="about" href="/feed.xml">XML Feed</a></li>
+      </ul>
+    </div>
+    <!-- end /.fixed-condition -->
+  </div>
+  <div class="col-sm-8 col-offset-1 main-layout">
+
+    <header class="post-header" style="margin-top: 7%">
+        <hr/>
+      <h1 class="post-title">5</h1>
+    </header>
+
+    <span class="time">17 Nov 2022</span>
+
+
+    <div class="content">
+      <div class="post" style="font-size: 13px">
+        <p >
+          
+        </p>
+        <br><br><br>
+        <!--<p>Previously makesure you already install the <a href="https://pypi.org/project/django-recaptcha/"><code class="language-plaintext highlighter-rouge">django-recaptcha</code></a>,
+        don’t miss also to <a href="https://www.google.com/recaptcha/about/">Sign up for reCAPTCHA</a></p>-->
+
+  <!--      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install django-recaptcha
+</code></pre></div></div>
+
+        <p>Add <code class="language-plaintext highlighter-rouge">'captcha'</code> to your <code class="language-plaintext highlighter-rouge">INSTALLED_APPS</code> setting.</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">...,</span>
+    <span class="s">'captcha'</span><span class="p">,</span>
+    <span class="p">...</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+        <p>Add the Google reCAPTCHA keys generated into your Django settings with <code class="language-plaintext highlighter-rouge">RECAPTCHA_PUBLIC_KEY</code> and <code class="language-plaintext highlighter-rouge">RECAPTCHA_PRIVATE_KEY</code>.</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">RECAPTCHA_PUBLIC_KEY</span> <span class="o">=</span> <span class="s">'MyRecaptchaKey123'</span>
+<span class="n">RECAPTCHA_PRIVATE_KEY</span> <span class="o">=</span> <span class="s">'MyRecaptchaPrivateKey456'</span>
+</code></pre></div></div>
+
+        <p>Then modify the default authentication form with add new captcha field, in your <code class="language-plaintext highlighter-rouge">myapp/forms.py</code>:</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.forms</span> <span class="kn">import</span> <span class="n">AuthenticationForm</span>
+
+<span class="kn">from</span> <span class="nn">captcha.fields</span> <span class="kn">import</span> <span class="n">ReCaptchaField</span>
+<span class="kn">from</span> <span class="nn">captcha.widgets</span> <span class="kn">import</span> <span class="n">ReCaptchaV2Checkbox</span>
+
+
+<span class="k">class</span> <span class="nc">AuthAdminForm</span><span class="p">(</span><span class="n">AuthenticationForm</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">settings</span><span class="p">.</span><span class="n">DEBUG</span><span class="p">:</span>
+        <span class="n">captcha</span> <span class="o">=</span> <span class="n">ReCaptchaField</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">ReCaptchaV2Checkbox</span><span class="p">(</span>
+            <span class="n">attrs</span><span class="o">=</span><span class="p">{</span>
+                <span class="s">'data-theme'</span><span class="p">:</span> <span class="s">'light'</span><span class="p">,</span>
+                <span class="s">'data-size'</span><span class="p">:</span> <span class="s">'normal'</span><span class="p">,</span>
+                <span class="c1"># 'style': ('transform:scale(1.057);-webkit-transform:scale(1.057);'
+</span>                <span class="c1">#           'transform-origin:0 0;-webkit-transform-origin:0 0;')
+</span>            <span class="p">}</span>
+        <span class="p">))</span>
+</code></pre></div></div>
+
+        <p>Then in your <code class="language-plaintext highlighter-rouge">myproject/urls.py</code>;</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
+
+<span class="kn">from</span> <span class="nn">myapp.forms</span> <span class="kn">import</span> <span class="n">AuthAdminForm</span>
+
+<span class="c1"># modify the default admin login form
+# with add reCAPTCHA feature to fix bruteforce issue.
+</span><span class="n">admin</span><span class="p">.</span><span class="n">autodiscover</span><span class="p">()</span>
+<span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">login_form</span> <span class="o">=</span> <span class="n">AuthAdminForm</span>
+<span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">login_template</span> <span class="o">=</span> <span class="s">'account/admin/login.html'</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'admin/'</span><span class="p">,</span> <span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">urls</span><span class="p">),</span>
+    <span class="p">...</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+        <p>Also don’t miss to add the captcha field into template <code class="language-plaintext highlighter-rouge">templates/account/admin/login.html</code>;</p>
+-->
+      </div>
+        <br>
+      <div>
+        <span style="float: left; color: #0d3b24; font-size: 15px">Share &raquo;&nbsp; </span>
+          <span style="float: right"><a href="./example.html" style="color: #0d3b24; font-size: 15px"> &nbsp;Next&nbsp;&raquo; &nbsp;</a></span>
+        <!-- Twitter -->
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="github.io">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+        <!-- Facebook -->
+        <!--<div class="fb-share-button" data-href="http://localhost:4000/python/django/security/2021/10/06/add-recaptcha-to-default-django-admin-login-form.html" data-layout="button_count" style="position: relative; top: -8px; left: 3px;"></div>-->
+      </div>
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1749788565247320";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+    </div>
+
+      <br><br>
+
+    <!-- 댓글 -->
+    <!--<div class="disqus-comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript" >
+        /* <![CDATA[ */
+        var disqus_shortname = "stackproblems";
+        var disqus_identifier = "http://localhost:4000_소개";
+        var disqus_title = "소개";
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        /* ]]> */
+      </script>
+    </div>-->
+
+    <footer>
+      &copy; hyeindev
+
+      - <a href="https://github.com/hyeindev">https://github.com/hyeindev</a> - Powered by Jekyll.
+
+<!--      <div class="btn-github" style="float:right;">
+        <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=star&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
+        <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=fork&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
+      </div>-->
+    </footer>
+  </div>
+  <!-- end /.col-sm-8 -->
+</div>
+<!-- end /.container -->
+
+<!-- Bootstrap core JavaScript -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/super-search.js"></script>
+<script src="/static/js/thickbox-compressed.js"></script>
+<script src="/static/js/projects.js"></script>
+</body>
+</html>
+
