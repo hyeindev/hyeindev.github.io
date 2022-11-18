@@ -37,42 +37,16 @@
   <link rel="stylesheet" href="/static/css/projects.css">
   <link rel="stylesheet" href="/static/css/main.css">
 
-
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#nav_bar").load("../nav_child.html");
+    });
+  </script>
 </head>
 <body>
 <div class="container">
-  <div class="col-sm-3">
-    <div class="fixed-condition">
-      <image src="/static/img/profile.jpg" width="100px"></image>
-      <h1 class="author-name"><a href="https://github.com/hyeindev" style="color: #0d3b24">@Hyeindev</a></h1>
-      <div class="profile-about">
-        Interested in <br> java,springboot,gradle,jpa,mybatis,javascript,jsp
-      </div>
-      <!-- 깃허브,트위터,페이스북 등-->
-      <div class="social">
-        <ul>
-          <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-          <li><a href="#" target="_blank"><i class="fa fa-stack-exchange"></i></a></li>
-          <li><a href="https://github.com/hyeindev" target="_blank"><i class="fa fa-github"></i></a></li>
-        </ul>
-      </div>
-      <div class="search" id="js-search">
-        <!-- 검색 인풋박스 -->
-        <!--   <input type="text" placeholder="(sitemap)~$ type to search" class="search__input form-control" id="js-search__input">
-           <ul class="search__results" id="js-search__results">
-           </ul>-->
-      </div>
-      <hr />
-      <ul class="sidebar-nav">
-        <strong>Read</strong>
-        <li ><a href="../about_read.html" style="color: #0d3b24; font-size: 15px">About</a></li>
-        <li ><a href="../implementationPatterns.html" style="color: #0d3b24; font-size: 13px">켄트 벡의 구현 패턴</a></li>
-        <li  class="hide"><a class="about" href="/projects">My Projects</a></li>
-        <li  class="hide"><a class="about" href="/feed.xml">XML Feed</a></li>
-      </ul>
-    </div>
+  <div id="nav_bar" class="col-sm-3">
     <!-- end /.fixed-condition -->
   </div>
   <div class="col-sm-8 col-offset-1 main-layout">
