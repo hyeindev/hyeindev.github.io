@@ -1,17 +1,14 @@
-## My Stack Problems
+## Hyeindev's Develpment Space
 
 > This project forked and has been modified from [A simple grey theme for Jekyll](https://github.com/liamsymonds/simplygrey-jekyll),
 > and the search posts using [Super Search](https://github.com/chinchang/super-search)
 
-### Demo
+### Theme by Jelyll
 * [https://agusmakmun.github.io](https://agusmakmun.github.io)
 
 #### Features
-
-* Sitemap and XML Feed
-* Pagination in homepage
 * Posts under category
-* Realtime Search Posts _(title & description)_ by query.
+* Share on reading book about programming
 * Related Posts
 * Highlight pre
 * Next & Previous Post
@@ -23,7 +20,7 @@
 
 #### Screenshot
 
-![Screenshot Post Page](https://raw.githubusercontent.com/agusmakmun/agusmakmun.github.io/master/static/img/screenshot-post-page.png  "Screenshot Post Page")
+![Screenshot Post Page](./static/img/page_intro.png  "Screenshot Post Page")
 
 ### Install & Configuration
 
