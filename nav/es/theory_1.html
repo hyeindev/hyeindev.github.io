@@ -43,6 +43,14 @@
       $("#nav_bar").load("../nav_child.html");
     });
   </script>
+  <style>
+    table {
+      width: 35%;
+    }
+    th,td {
+      padding-right: 1%;
+    }
+  </style>
 </head>
 <body>
 <div class="container">
@@ -63,7 +71,6 @@
     <div class="content">
       <div class="post" style="font-size: 13px">
         <p>
-          <strong style="color: #999999">개념</strong><br>
           ElasticSearch 는 Apache Lucene 기반으로 구동되는 Java 분산 검색 엔진이다.<br>
         <div style="border: 1px solid #fce1e9; padding: 1%">
           &#128161  Apache Lucene (아파치루씬) 에 대해 찾아보았다.<br>
@@ -71,7 +78,61 @@
           장점 〉 우수한 확장성,작은 메모리 사용량, 텍스트는 원본의 2~30% 용량으로 색인, 다중색인 지원, 동시업데이트/검색 가능
         </div>
         <br>
-
+        관계형 데이터베이스와의 비교를 통해 엘라스틱서치에서 쓰이는 용어를 정리해보자<br><br>
+        <table style="font-size: 13px">
+          <thead>
+            <tr>
+              <th>RDB</th>
+              <th>ES</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Database</td>
+            <td>Index</td>
+          </tr>
+          <tr>
+            <td>Table</td>
+            <td>Type</td>
+          </tr>
+          <tr>
+            <td>Row</td>
+            <td>Document</td>
+          </tr>
+          <tr>
+            <td>Column</td>
+            <td>Field</td>
+          </tr>
+          <tr>
+            <td>Index</td>
+            <td>Analyze</td>
+          </tr>
+          <tr>
+            <td>Primary key</td>
+            <td>_id</td>
+          </tr>
+          <tr>
+            <td>Schema</td>
+            <td>Mapping</td>
+          </tr>
+          <tr>
+            <td>Physical partition</td>
+            <td>shard</td>
+          </tr>
+          <tr>
+            <td>Logical partition</td>
+            <td>Route</td>
+          </tr>
+          <tr>
+            <td>Relational</td>
+            <td>Parent/Child, Nested</td>
+          </tr>
+          <tr>
+            <td>SQL</td>
+            <td>Query DSL</td>
+          </tr>
+          </tbody>
+        </table>
         </p>
         <br><br><br>
         <!--<p>Previously makesure you already install the <a href="https://pypi.org/project/django-recaptcha/"><code class="language-plaintext highlighter-rouge">django-recaptcha</code></a>,
