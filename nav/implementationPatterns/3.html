@@ -92,8 +92,49 @@
           <span style="color: #999999; font-size: 12px"><br>이제는 로그의 텍스트 형식을 수정해야 한다면, <span style="font-size: 15px; color: #c7254e">pringLog()</span> 함수만 변경하면 된다.</span>
         </div>
         <br><br><br>
-        <li>선언적 표현</li>
+        <li>로직과 데이터의 결합</li>
+        요약 〉&nbsp; 로직과 데이터를 밀접하게 배치하라!<br>
+        해결 〉 &nbsp;이 원칙을 따르기 위한 배치방법의 명확한 가이드라인은 없다. 상황에 따라 적절히 대응하라 <br><br>
 
+        <li>대칭성</li>
+        요약 〉&nbsp;대칭성은 코드를 일관된 방식으로 표현하는 통일성!<br>
+        해결 〉 프로그램의 대칭성을 찾아내서 명확히 표현하라<br><br>
+        <div style="border: 1px solid #fce1e9; padding: 2%;">
+          &#128161 <span style="color: #999999; font-size: 12px">
+          최근 진행한 프로젝트에서 대칭성의 원칙을 위반한 코드를 발견해서 그 부분을 일부 발췌했다.<br><br>
+          <div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#272727;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div><div style="line-height:130%">9</div><div style="line-height:130%">10</div><div style="line-height:130%">11</div><div style="line-height:130%">12</div><div style="line-height:130%">13</div><div style="line-height:130%">14</div><div style="line-height:130%">15</div><div style="line-height:130%">16</div><div style="line-height:130%">17</div><div style="line-height:130%">18</div><div style="line-height:130%">19</div><div style="line-height:130%">20</div><div style="line-height:130%">21</div><div style="line-height:130%">22</div><div style="line-height:130%">23</div><div style="line-height:130%">24</div><div style="line-height:130%">25</div><div style="line-height:130%">26</div><div style="line-height:130%">27</div><div style="line-height:130%">28</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">public</span>&nbsp;<span style="color:#ff3399">class</span>&nbsp;AdminApiController&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;@ResponseBody</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;@PostMapping(<span style="color:#ffd500">"/list/search"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">public</span>&nbsp;ResponseResult&nbsp;adminListSearch(@RequestBody&nbsp;Map<span style="color:#0086b3"></span><span style="color:#ff3399">&lt;</span><span style="color:#4be6fa">String</span>,&nbsp;Object<span style="color:#0086b3"></span><span style="color:#ff3399">&gt;</span>&nbsp;searchKeywordList,&nbsp;@AuthUser&nbsp;UserEntity&nbsp;user)&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#999999">/**&nbsp;List&lt;AdminListDto&gt;&nbsp;adminListDtoList&nbsp;=&nbsp;adminService</span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.searchAdminList(SearchKeyword.stringMapToSearchKeywordMap(searchKeywordList),user);&nbsp;*/</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">return</span>&nbsp;ResponseResult.success(adminListDtoList);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;}</div><div style="padding:0 6px; white-space:pre; line-height:130%">)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">public</span>&nbsp;<span style="color:#ff3399">class</span>&nbsp;PartnerApiController&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;@ResponseBody</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;@PostMapping(<span style="color:#ffd500">"/prt/list/mod/save"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">public</span>&nbsp;ResponseResult&nbsp;partnerUpdate(PartnerModDto&nbsp;partnerModDto,&nbsp;@AuthUser&nbsp;UserEntity&nbsp;user)&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#999999">/**&nbsp;if&nbsp;(partnerModDto.getPrtUid()&nbsp;==&nbsp;0&nbsp;||&nbsp;partnerModDto.getPrtUid()&nbsp;==&nbsp;null)&nbsp;{</span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.error("Partner&nbsp;Mod&nbsp;Fail&nbsp;:&nbsp;{}",partnerModDto.toString());</span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ResponseResult.fail("파트너사&nbsp;정보&nbsp;수정에&nbsp;실패하였습니다.");</span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;partnerModDto.setModUserId(user.getUserId());&nbsp;*/</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">return</span>&nbsp;partnerService.modPartner(partnerModDto,user);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;}</div><div style="padding:0 6px; white-space:pre; line-height:130%">}</div></div><div style="text-align:right;margin-top:-13px;margin-right:5px;font-size:9px;font-style:italic"><a href="http://colorscripter.com/info#e" target="_blank" style="color:#4f4f4ftext-decoration:none">Colored by Color Scripter</a></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+          <br>
+
+          각각의 <span style="font-size: 15px">Controller</span> 가 <span style="font-size: 15px">ResponseResult</span> 를 <span style="font-size: 15px">return</span> 하는 부분에서의 차이점이 보인다.<br>
+          '여러명의 BE가 동시에 속도를 내어 작업하다보니 대칭성에 대한 소통의 부재가 있었구나' 하는 깨달음을 얻어간다!<br>
+          </span>
+        </div>
+        <br>
+
+        <li>선언적 표현</li>
+        요약 〉&nbsp;때로는 선언적 표현을 통해 코드를 작성하는 것이 이해하기 쉽다.<br>
+       <!-- 해결 〉 프로그램의 대칭성을 찾아내서 명확히 표현하라<br><br>-->
+        <div style="border: 1px solid #fce1e9; padding: 2%;">
+          &#128161 <span style="color: #999999; font-size: 12px"> 저자의 <span style="font-size: 15px">J</span>유닛을 통한 코드 예시는 개인적으로 와닿지 않았다. (본인이 <span style="font-size: 15px">J</span>유닛에 대해 알지 못한다..)<br>
+                   따라서 이 부분은 스터디 팀원들의 견해를 종합하여 이해를 도우려고 한다.
+          </span>
+        </div>
+        해결 〉 <br>
+        예시 〉 <br>
+        <br>
+
+
+        <li>변화율</li>
+        요약 〉&nbsp;코드의 변화율에 유의하라! <br>
+        해결 〉 시간적으로 로직과 다른 변동성이 존재하는 데이터는 분리하라<br>
+        <div style="border: 1px solid #fce1e9; padding: 2%;">
+            &#128161 <span style="color: #999999; font-size: 12px"> 글을 읽고 변화율의 원칙에 위반했던 경험 하나가 생각이 났다.<br>
+                  고용보험관련 세금 변동 프로세스 개발하던 때였는데, <br>
+                  당시 변동가능성이 있던 데이터들 중 세금률에 관련한 데이터를 쿼리 내에 박아버린 기억이 있다. (말하기도 창피한 기억)<br>
+                  몇 개월 뒤에 이 변화율 데이터가 0.696 에서 0.717로 올랐는데, DB UPDATE 로 끝날 것을 쿼리 수정후 수정사항에 대한 테스트까지... 추가로 공수를 더 들인 경험이 있다. <br>
+                  가장 기본적이고 중요한 것을 놓친 것에 대해 스스로에게 실망한 경험이었다.<br>
+            </span>
+        </div>
       </ul>
 
         </p>
