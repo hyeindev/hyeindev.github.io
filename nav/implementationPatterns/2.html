@@ -76,70 +76,7 @@
 
         </p>
         <br><br><br>
-        <!--<p>Previously makesure you already install the <a href="https://pypi.org/project/django-recaptcha/"><code class="language-plaintext highlighter-rouge">django-recaptcha</code></a>,
-        don’t miss also to <a href="https://www.google.com/recaptcha/about/">Sign up for reCAPTCHA</a></p>-->
 
-  <!--      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install django-recaptcha
-</code></pre></div></div>
-
-        <p>Add <code class="language-plaintext highlighter-rouge">'captcha'</code> to your <code class="language-plaintext highlighter-rouge">INSTALLED_APPS</code> setting.</p>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">...,</span>
-    <span class="s">'captcha'</span><span class="p">,</span>
-    <span class="p">...</span>
-<span class="p">]</span>
-</code></pre></div></div>
-
-        <p>Add the Google reCAPTCHA keys generated into your Django settings with <code class="language-plaintext highlighter-rouge">RECAPTCHA_PUBLIC_KEY</code> and <code class="language-plaintext highlighter-rouge">RECAPTCHA_PRIVATE_KEY</code>.</p>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">RECAPTCHA_PUBLIC_KEY</span> <span class="o">=</span> <span class="s">'MyRecaptchaKey123'</span>
-<span class="n">RECAPTCHA_PRIVATE_KEY</span> <span class="o">=</span> <span class="s">'MyRecaptchaPrivateKey456'</span>
-</code></pre></div></div>
-
-        <p>Then modify the default authentication form with add new captcha field, in your <code class="language-plaintext highlighter-rouge">myapp/forms.py</code>:</p>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
-<span class="kn">from</span> <span class="nn">django.contrib.auth.forms</span> <span class="kn">import</span> <span class="n">AuthenticationForm</span>
-
-<span class="kn">from</span> <span class="nn">captcha.fields</span> <span class="kn">import</span> <span class="n">ReCaptchaField</span>
-<span class="kn">from</span> <span class="nn">captcha.widgets</span> <span class="kn">import</span> <span class="n">ReCaptchaV2Checkbox</span>
-
-
-<span class="k">class</span> <span class="nc">AuthAdminForm</span><span class="p">(</span><span class="n">AuthenticationForm</span><span class="p">):</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">settings</span><span class="p">.</span><span class="n">DEBUG</span><span class="p">:</span>
-        <span class="n">captcha</span> <span class="o">=</span> <span class="n">ReCaptchaField</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">ReCaptchaV2Checkbox</span><span class="p">(</span>
-            <span class="n">attrs</span><span class="o">=</span><span class="p">{</span>
-                <span class="s">'data-theme'</span><span class="p">:</span> <span class="s">'light'</span><span class="p">,</span>
-                <span class="s">'data-size'</span><span class="p">:</span> <span class="s">'normal'</span><span class="p">,</span>
-                <span class="c1"># 'style': ('transform:scale(1.057);-webkit-transform:scale(1.057);'
-</span>                <span class="c1">#           'transform-origin:0 0;-webkit-transform-origin:0 0;')
-</span>            <span class="p">}</span>
-        <span class="p">))</span>
-</code></pre></div></div>
-
-        <p>Then in your <code class="language-plaintext highlighter-rouge">myproject/urls.py</code>;</p>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
-<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
-
-<span class="kn">from</span> <span class="nn">myapp.forms</span> <span class="kn">import</span> <span class="n">AuthAdminForm</span>
-
-<span class="c1"># modify the default admin login form
-# with add reCAPTCHA feature to fix bruteforce issue.
-</span><span class="n">admin</span><span class="p">.</span><span class="n">autodiscover</span><span class="p">()</span>
-<span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">login_form</span> <span class="o">=</span> <span class="n">AuthAdminForm</span>
-<span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">login_template</span> <span class="o">=</span> <span class="s">'account/admin/login.html'</span>
-
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">path</span><span class="p">(</span><span class="s">'admin/'</span><span class="p">,</span> <span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">urls</span><span class="p">),</span>
-    <span class="p">...</span>
-<span class="p">]</span>
-</code></pre></div></div>
-
-        <p>Also don’t miss to add the captcha field into template <code class="language-plaintext highlighter-rouge">templates/account/admin/login.html</code>;</p>
--->
       </div>
         <br>
       <div>
