@@ -58,28 +58,16 @@
     </header>
 
     <span class="time">22 Nov 2022</span>
-    <span class="time"> - 소제목 미정</span>
+    <span class="time"> - 다단계 클래스 계층이란? 그리고 코드 예시</span>
 
     <div class="content">
       <div class="post" style="font-size: 13px">
         <p >
-          실제로 구현 패턴에서 가장 많은 양을 차지하는 것이 클래스 구현 패턴이다.
-          흔히 알고있는 '디자인 패턴'도 클래스 간의 관계를 다루는 것이다.
-          이제부터 클래스에 대한 여러 패턴에 대해 알아보자.
-
-        <ul>
-          <li>클래스</li>
-          클래스는 변화율이 비슷한 로직과 데이터를 묶어놓는다. <br>
-          <span style="font-size: 15px">OOP</span>를 위해서 <code>로직을 클래스 단위로 구성하는 방법</code>, <code>로직 간의 차이점을 효과적으로 표현하는 방법</code>에 대해 알아야한다.
-          <br><br>
-          상속을 사용하면 코드를 읽기가 어려워진다. 따라서 선별적으로 상속을 이용해야한다.<br>
-          클래스는 OOP 설계 요소 중 값이 비싼 편이다. 클래스의 수를 줄이고 의미있는 작업에만 사용하는 것은 프로그램을 개선하는 데 중요한 부분이다.<br>
-
-          <br>
-          상위 클래스 명은 중요한 클래스 일수록 컴팩트한 것이 핵심, 하지만 정확한 의미를 위해 여러 단어를 조합해야 한다면 메타포(은유)를 사용해라.
-          하위 클래스 명은 상위클래스 정도의 단독성이 있다면 별도의 컴팩트한 네이밍을 하고, 그렇지 않다면 표현성을 택해라.
-
-        </ul>
+          다단계 클래스 계층 (multi-level-hierarchy) 란, A 클래스를 B 클래스가 상속받았는데 B 클래스를 또 C 클래스가 상속받는 구조이다.
+        <div style="border: 1px solid #fce1e9; padding: 2%;">
+          &#128161 아래와 같은 구조
+          <div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#272727;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div><div style="line-height:130%">9</div><div style="line-height:130%">10</div><div style="line-height:130%">11</div><div style="line-height:130%">12</div><div style="line-height:130%">13</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">public</span>&nbsp;<span style="color:#ff3399">class</span>&nbsp;A&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">public</span>&nbsp;<span style="color:#ff3399">class</span>&nbsp;B&nbsp;<span style="color:#ff3399">extends</span>&nbsp;A&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">public</span>&nbsp;<span style="color:#ff3399">class</span>&nbsp;C&nbsp;<span style="color:#ff3399">extends</span>&nbsp;B&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+      </div>
         </p>
         <br><br><br>
 
