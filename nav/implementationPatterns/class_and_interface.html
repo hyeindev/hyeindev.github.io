@@ -71,7 +71,7 @@
           <li>클래스</li>
           클래스는 변화율이 비슷한 로직과 데이터를 묶어놓는다. <br>
           <span style="font-size: 15px">OOP</span>를 위해서 <code>로직을 클래스 단위로 구성하는 방법</code>, <code>로직 간의 차이점을 효과적으로 표현하는 방법</code>에 대해 알아야한다.
-          <br><br>
+          <br>
           상속을 사용하면 코드를 읽기가 어려워진다. 따라서 선별적으로 상속을 이용해야한다.<br>
           클래스는 OOP 설계 요소 중 값이 비싼 편이다. 클래스의 수를 줄이고 의미있는 작업에만 사용하는 것은 프로그램을 개선하는 데 중요한 부분이다.<br>
 
@@ -79,10 +79,39 @@
           상위 클래스 명은 중요한 클래스 일수록 컴팩트한 것이 핵심, 하지만 정확한 의미를 위해 여러 단어를 조합해야 한다면 메타포(은유)를 사용해라.<br>
           하위 클래스 명은 상위클래스 정도의 단독성이 있다면 별도의 컴팩트한 네이밍을 하고, 그렇지 않다면 표현성을 택해라.<br>
           다단계 계층 클래스를 사용한 경우 위임을 통해 다단계 클래스 계층을 제거하는 편이 좋다 <br>
-
-        <li>인터페이스</li>
+          <br><br>
+        <li>인터페이스와 추상클래스</li>
         인터페이스란, 구현이 빠진 여러 연산의 집합이다.<br>
-        인터페이스는 사용하여 유연성을 얻을 수 있는 경우에만 사용해야한다.
+        인터페이스는 사용하여 유연성을 얻을 수 있는 경우에만 사용해야한다.<br>
+
+        추상클래스와 인터페이스의 장단점은 인터페이스 수정의 용이성과 단일 클래스가 여러 인터페이스를 지원할 수 있는지 여부로 귀결된다.<br>
+        인터페이스는 수정에 취약하다. 인터페이스를 수정하면 구현체인 클래스도 모두 수정되어야한다.<br>
+        <br>
+        반면, 추상클래스는 이런 문제가 없다. <br>
+        기존 설계를 유지하면서 새로운 연산을 얼마든지 추가할 수 있다.<br>
+        하지만 단일상속이라는 점이 단점이다.<br><br>
+
+
+        인터페이스 〉 이 기능은 이렇게 사용하세요<br>
+        추상클래스 〉 이 기능을 이렇게 구현해봤습니다<br>
+        <br><br>
+
+        <li>버전 인터페이스</li>
+        수정에 취약한 인터페이스도 새로운 인터페이스를 선언하고 기존 인터페이스를 확장(상속) 하면 새로운 연산을 추가할 수는 있다.<br>
+        단, 객체의 타입을 확인하고 새로운 타입으로 다운캐스트해서 사용해야한다.<br><br>
+        <div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#272727;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div><div style="line-height:130%">9</div><div style="line-height:130%">10</div><div style="line-height:130%">11</div><div style="line-height:130%">12</div><div style="line-height:130%">13</div><div style="line-height:130%">14</div><div style="line-height:130%">15</div><div style="line-height:130%">16</div><div style="line-height:130%">17</div><div style="line-height:130%">18</div><div style="line-height:130%">19</div><div style="line-height:130%">20</div><div style="line-height:130%">21</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">interface</span>&nbsp;Command&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">void</span>&nbsp;run();</div><div style="padding:0 6px; white-space:pre; line-height:130%">}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">//&nbsp;위&nbsp;인터페이스를&nbsp;버전&nbsp;인터페이스를&nbsp;사용하여&nbsp;새로운&nbsp;연산을&nbsp;추가해보자&nbsp;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">interface</span>&nbsp;ReversibleCommand&nbsp;<span style="color:#ff3399">extends</span>&nbsp;Command&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">void</span>&nbsp;undo();</div><div style="padding:0 6px; white-space:pre; line-height:130%">}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">//&nbsp;버전&nbsp;인터페이스를&nbsp;다운캐스트하여&nbsp;사용한&nbsp;예시</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">Command&nbsp;command&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;<span style="color:#ff3399">new</span>&nbsp;Command()&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Override</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">public</span>&nbsp;<span style="color:#ff3399">void</span>&nbsp;run()&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div><div style="padding:0 6px; white-space:pre; line-height:130%">};</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">if</span>&nbsp;(command&nbsp;<span style="color:#ff3399">instanceof</span>&nbsp;ReversibleCommand)&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ReversibleCommand&nbsp;reversibleCommandDowncast&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;(ReversibleCommand)&nbsp;command;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reversibleCommandDowncast.undo();</div><div style="padding:0 6px; white-space:pre; line-height:130%">}</div></div><div style="text-align:right;margin-top:-13px;margin-right:5px;font-size:9px;font-style:italic"><a href="http://colorscripter.com/info#e" target="_blank" style="color:#4f4f4ftext-decoration:none">Colored by Color Scripter</a></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+        <br>
+        버전 인터페이스를 사용하는것은 달갑지 않은 문제에 대한 달갑지 않은 해결책이다.<br>
+        인터페이스를 확장할 수 밖에 없는 경우에 대비하여 알아두자<br><br>
+
+        <li>값 객체</li>
+        값 스타일 객체는 객체 자체가 변화하지 않는 정수와 같은 값을 지닌(또는 그 자체로 값인) 객체이다.
+        <div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#272727;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div><div style="line-height:130%">9</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">//값&nbsp;객체</span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">class</span>&nbsp;Money&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">int</span>&nbsp;value;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">public</span>&nbsp;Money(<span style="color:#4be6fa">int</span>&nbsp;value,&nbsp;Account&nbsp;accunt)&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">this</span>.value&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;value;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;account.addCredit(<span style="color:#ff3399">this</span>);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;}</div><div style="padding:0 6px; white-space:pre; line-height:130%">}</div></div><div style="text-align:right;margin-top:-13px;margin-right:5px;font-size:9px;font-style:italic"><a href="http://colorscripter.com/info#e" target="_blank" style="color:#4f4f4ftext-decoration:none">Colored by Color Scripter</a></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+        <br>
+        Money 는 값 스타일 객체이고, Account 는 변화하는 상태를 가진 객체이다.<br>
+        값 객체를 변화하는 상태를 가진 객체와 적절히 섞어서 사용하면 프로그램을 효과적으로 표현할 수 있다. <br>
+        <br>
+        <li>특화</li>
 
         </ul>
         </p>
