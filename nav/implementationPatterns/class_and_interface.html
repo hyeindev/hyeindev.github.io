@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="/static/img/favicon.ico" />
-  <title>implementationPatterns - 2</title>
+  <title>implementationPatterns - 5</title>
   <meta name="author" content="hyeindev" />
   <meta name="description" content="about development" />
   <meta name="keywords" content="development, jekyll, ruby, python, django, bash, raspberry, others, security, codefights, nginx, server, ssl, linux, ubuntu" />
@@ -47,33 +47,44 @@
 <body>
 <div class="container">
   <div id="nav_bar" class="col-sm-3">
+
     <!-- end /.fixed-condition -->
   </div>
   <div class="col-sm-8 col-offset-1 main-layout">
 
     <header class="post-header" style="margin-top: 7%">
         <hr/>
-      <h1 class="post-title">2</h1>
+      <h1 class="post-title">5</h1>
     </header>
 
-    <span class="time">17 Nov 2022</span>
-    <span class="time">- 패턴의 장단점</span>
-
+    <span class="time">22 Nov 2022</span>
+    <span class="time"> - 소제목 미정</span>
 
     <div class="content">
       <div class="post" style="font-size: 13px">
         <p >
-          <code>읽기 쉽고</code>, <code>작성하기 쉽고</code>, <code>검증하기 쉽고</code>, <code>수정하기 쉽고</code>, <code>효율적인 것</code> 을 고려하는 것이 패턴이다.<br>
-          위의 요소들은 코드를 작성하는 방법에 따라서 (즉, 책에서 소개될 '패턴'에 따라서) 우선순위가 달라진다.<br>
-          <br>
-          예를 들어 'For문' 이라는 패턴은 루프를 코드로 표현해주지만, 루프 변수 이름을 어떻게 지어야하는가 하는 문제를 제기한다.<br>
-          <div style="border: 1px solid #fce1e9; padding: 1%">
-          &#128161 위의 예시를 읽고 각각의 패턴은 어떤 문제를 해결하면서도 동시에 어떤 문제를 야기하기때문에 어떤 요소를 우선적으로 해결하려는 가에 따라서 패턴을 잘 활용해야겠다는 생각이 들었다.
-          </div>
-          <br>
-        각 패턴의 장단점을 알고, 상황에 따라 활용한다면 반복적인 코드에 대한 에너지와 시간을 절약할 수 있다.<br>
-        또한, 새로운 패턴에 대해 생각해볼 수 있는 재미를 얻을 수 있다!
+          실제로 구현 패턴에서 가장 많은 양을 차지하는 것이 클래스 구현 패턴이다.
+          흔히 알고있는 '디자인 패턴'도 클래스 간의 관계를 다루는 것이다.
+          이제부터 클래스에 대한 여러 패턴에 대해 알아보자.
 
+        <ul>
+          <li>클래스</li>
+          클래스는 변화율이 비슷한 로직과 데이터를 묶어놓는다. <br>
+          <span style="font-size: 15px">OOP</span>를 위해서 <code>로직을 클래스 단위로 구성하는 방법</code>, <code>로직 간의 차이점을 효과적으로 표현하는 방법</code>에 대해 알아야한다.
+          <br><br>
+          상속을 사용하면 코드를 읽기가 어려워진다. 따라서 선별적으로 상속을 이용해야한다.<br>
+          클래스는 OOP 설계 요소 중 값이 비싼 편이다. 클래스의 수를 줄이고 의미있는 작업에만 사용하는 것은 프로그램을 개선하는 데 중요한 부분이다.<br>
+
+          <br>
+          상위 클래스 명은 중요한 클래스 일수록 컴팩트한 것이 핵심, 하지만 정확한 의미를 위해 여러 단어를 조합해야 한다면 메타포(은유)를 사용해라.<br>
+          하위 클래스 명은 상위클래스 정도의 단독성이 있다면 별도의 컴팩트한 네이밍을 하고, 그렇지 않다면 표현성을 택해라.<br>
+          다단계 계층 클래스를 사용한 경우 위임을 통해 다단계 클래스 계층을 제거하는 편이 좋다 <br>
+
+        <li>인터페이스</li>
+        인터페이스란, 구현이 빠진 여러 연산의 집합이다.<br>
+        인터페이스는 사용하여 유연성을 얻을 수 있는 경우에만 사용해야한다.
+
+        </ul>
         </p>
         <br><br><br>
 
@@ -81,7 +92,7 @@
         <br>
       <div>
         <span style="float: left; color: #0d3b24; font-size: 15px">Share &raquo;&nbsp; </span>
-          <span style="float: right"><a href="./3.html" style="color: #0d3b24; font-size: 15px"> &nbsp;Next&nbsp;&raquo; &nbsp;</a></span>
+          <span style="float: right"><a href="./example.html" style="color: #0d3b24; font-size: 15px"> &nbsp;Next&nbsp;&raquo; &nbsp;</a></span>
         <!-- Twitter -->
         <a href="https://twitter.com/share" class="twitter-share-button" data-via="github.io">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -124,7 +135,7 @@
     <footer>
       &copy; hyeindev
 
-      - <a href="https://github.com/hyeindev" ><span style="color: #0d3b24">https://github.com/hyeindev</span></a> - Powered by Jekyll.
+      - <a href="https://github.com/hyeindev">https://github.com/hyeindev</a> - Powered by Jekyll.
 
 <!--      <div class="btn-github" style="float:right;">
         <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=star&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
