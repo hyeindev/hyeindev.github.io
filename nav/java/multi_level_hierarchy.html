@@ -57,79 +57,20 @@
       <h1 class="post-title">5</h1>
     </header>
 
-    <span class="time">17 Nov 2022</span>
-
+    <span class="time">22 Nov 2022</span>
+    <span class="time"> - 다단계 클래스 계층이란? 그리고 코드 예시</span>
 
     <div class="content">
       <div class="post" style="font-size: 13px">
         <p >
-          
+          다단계 클래스 계층 (multi-level-hierarchy) 란, A 클래스를 B 클래스가 상속받았는데 B 클래스를 또 C 클래스가 상속받는 구조이다.
+        <div style="border: 1px solid #fce1e9; padding: 2%;">
+          &#128161 아래와 같은 구조
+          <div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#272727;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div><div style="line-height:130%">9</div><div style="line-height:130%">10</div><div style="line-height:130%">11</div><div style="line-height:130%">12</div><div style="line-height:130%">13</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">public</span>&nbsp;<span style="color:#ff3399">class</span>&nbsp;A&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">public</span>&nbsp;<span style="color:#ff3399">class</span>&nbsp;B&nbsp;<span style="color:#ff3399">extends</span>&nbsp;A&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">public</span>&nbsp;<span style="color:#ff3399">class</span>&nbsp;C&nbsp;<span style="color:#ff3399">extends</span>&nbsp;B&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+      </div>
         </p>
         <br><br><br>
-        <!--<p>Previously makesure you already install the <a href="https://pypi.org/project/django-recaptcha/"><code class="language-plaintext highlighter-rouge">django-recaptcha</code></a>,
-        don’t miss also to <a href="https://www.google.com/recaptcha/about/">Sign up for reCAPTCHA</a></p>-->
 
-  <!--      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install django-recaptcha
-</code></pre></div></div>
-
-        <p>Add <code class="language-plaintext highlighter-rouge">'captcha'</code> to your <code class="language-plaintext highlighter-rouge">INSTALLED_APPS</code> setting.</p>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">...,</span>
-    <span class="s">'captcha'</span><span class="p">,</span>
-    <span class="p">...</span>
-<span class="p">]</span>
-</code></pre></div></div>
-
-        <p>Add the Google reCAPTCHA keys generated into your Django settings with <code class="language-plaintext highlighter-rouge">RECAPTCHA_PUBLIC_KEY</code> and <code class="language-plaintext highlighter-rouge">RECAPTCHA_PRIVATE_KEY</code>.</p>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">RECAPTCHA_PUBLIC_KEY</span> <span class="o">=</span> <span class="s">'MyRecaptchaKey123'</span>
-<span class="n">RECAPTCHA_PRIVATE_KEY</span> <span class="o">=</span> <span class="s">'MyRecaptchaPrivateKey456'</span>
-</code></pre></div></div>
-
-        <p>Then modify the default authentication form with add new captcha field, in your <code class="language-plaintext highlighter-rouge">myapp/forms.py</code>:</p>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
-<span class="kn">from</span> <span class="nn">django.contrib.auth.forms</span> <span class="kn">import</span> <span class="n">AuthenticationForm</span>
-
-<span class="kn">from</span> <span class="nn">captcha.fields</span> <span class="kn">import</span> <span class="n">ReCaptchaField</span>
-<span class="kn">from</span> <span class="nn">captcha.widgets</span> <span class="kn">import</span> <span class="n">ReCaptchaV2Checkbox</span>
-
-
-<span class="k">class</span> <span class="nc">AuthAdminForm</span><span class="p">(</span><span class="n">AuthenticationForm</span><span class="p">):</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">settings</span><span class="p">.</span><span class="n">DEBUG</span><span class="p">:</span>
-        <span class="n">captcha</span> <span class="o">=</span> <span class="n">ReCaptchaField</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">ReCaptchaV2Checkbox</span><span class="p">(</span>
-            <span class="n">attrs</span><span class="o">=</span><span class="p">{</span>
-                <span class="s">'data-theme'</span><span class="p">:</span> <span class="s">'light'</span><span class="p">,</span>
-                <span class="s">'data-size'</span><span class="p">:</span> <span class="s">'normal'</span><span class="p">,</span>
-                <span class="c1"># 'style': ('transform:scale(1.057);-webkit-transform:scale(1.057);'
-</span>                <span class="c1">#           'transform-origin:0 0;-webkit-transform-origin:0 0;')
-</span>            <span class="p">}</span>
-        <span class="p">))</span>
-</code></pre></div></div>
-
-        <p>Then in your <code class="language-plaintext highlighter-rouge">myproject/urls.py</code>;</p>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
-<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
-
-<span class="kn">from</span> <span class="nn">myapp.forms</span> <span class="kn">import</span> <span class="n">AuthAdminForm</span>
-
-<span class="c1"># modify the default admin login form
-# with add reCAPTCHA feature to fix bruteforce issue.
-</span><span class="n">admin</span><span class="p">.</span><span class="n">autodiscover</span><span class="p">()</span>
-<span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">login_form</span> <span class="o">=</span> <span class="n">AuthAdminForm</span>
-<span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">login_template</span> <span class="o">=</span> <span class="s">'account/admin/login.html'</span>
-
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">path</span><span class="p">(</span><span class="s">'admin/'</span><span class="p">,</span> <span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">urls</span><span class="p">),</span>
-    <span class="p">...</span>
-<span class="p">]</span>
-</code></pre></div></div>
-
-        <p>Also don’t miss to add the captcha field into template <code class="language-plaintext highlighter-rouge">templates/account/admin/login.html</code>;</p>
--->
       </div>
         <br>
       <div>
