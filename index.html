@@ -65,30 +65,46 @@
             </div>
             <hr />
             <!-- 좌측 메뉴 탭 추가 시 index.html/ nav.html/ nav_child.html 변경-->
-            <ul class="sidebar-nav">
+            <ul class="sidebar-nav" onclick="visible(this)">
                 <strong>Read</strong>
+                <div style="display:none">
                 <li ><a href="nav/about/about_read.html" style="color: #0d3b24; font-size: 15px">About</a></li>
                 <li ><a href="nav/implementationPatterns.html" style="color: #0d3b24; font-size: 13px">켄트 벡의 구현 패턴</a></li>
-                <li  class="hide"><a class="about" href="/projects/">My Projects</a></li>
-                <li  class="hide"><a class="about" href="/feed.xml">XML Feed</a></li>
+                </div>
             </ul>
-            <ul class="sidebar-nav">
+            <ul class="sidebar-nav" onclick="visible(this)">
                 <strong>ES</strong>
+                <div style="display:none">
                 <li ><a href="nav/about/about_es.html" style="color: #0d3b24; font-size: 15px">About</a></li>
                 <li ><a href="nav/es_theory.html" style="color: #0d3b24; font-size: 13px">이론</a></li>
-                <li ><a href="nav/es_training.html" style="color: #0d3b24; font-size: 13px">실습</a></li>
+                    <li ><a href="nav/es_training.html" style="color: #0d3b24; font-size: 13px">실습</a></li>
+                </div>
             </ul>
-            <ul class="sidebar-nav">
+            <ul class="sidebar-nav" onclick="visible(this)">
                 <strong>Java</strong>
+                <div style="display:none">
                 <li ><a href="nav/about/about_java.html" style="color: #0d3b24; font-size: 15px">About</a></li>
                 <li ><a href="nav/java_standard.html" style="color: #0d3b24; font-size: 15px">Standard</a></li>
+                </div>
             </ul>
-            <ul class="sidebar-nav">
+            <ul class="sidebar-nav" onclick="visible(this)">
                 <strong>DevOps</strong>
+                <div style="display:none">
                 <li ><a href="nav/about/about_dev_ops.html" style="color: #0d3b24; font-size: 15px">About</a></li>
                 <li ><a href="nav/jenkins.html" style="color: #0d3b24; font-size: 15px">Jenkins</a></li>
+                </div>
             </ul>
         </div>
+        <script>
+            function visible(obj) {
+                if($(obj).children('div').is(":visible")){
+                    $(obj).children('div').css("display","none");
+                }
+                else{
+                    $(obj).children('div').css("display","block");
+                }
+            }
+        </script>
         <!-- end /.fixed-condition -->
     </div>
 </div>

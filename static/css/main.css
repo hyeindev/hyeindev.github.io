@@ -46,6 +46,9 @@ a:hover {
   margin: 0;
   padding: 0;
 }
+.sidebar-nav:hover {
+  cursor: pointer;
+}
 .sidebar-nav li {
   margin: 0;
   list-style: none;
