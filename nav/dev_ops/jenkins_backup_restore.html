@@ -65,173 +65,31 @@
       <h1 class="post-title">1</h1>
     </header>
 
-    <span class="time">18 Nov 2022</span>
-    <span class="time">- ES 기본개념과 용어 정리</span>
+    <span class="time">29 Nov 2022</span>
+    <span class="time">- 백업, 복원</span>
     <br><br>
     <div class="content">
       <div class="post" style="font-size: 13px">
         <p>
-          ElasticSearch 는 Apache Lucene 기반으로 구동되는 Java 분산 검색 엔진이다.<br>
-        Json 형식의 데이터 검색을 수행한다.
-        <div style="border: 1px solid #fce1e9; padding: 1%">
-          &#128161  Apache Lucene (아파치루씬) 에 대해 찾아보았다.<br>
-          아파치 루씬은 검색 어플리케이션을 만드는데 사용하는 오픈 소스 라이브러리이다.<br>
-          장점 〉 우수한 확장성,작은 메모리 사용량, 텍스트는 원본의 2~30% 용량으로 색인, 다중색인 지원, 동시업데이트/검색 가능
-        </div>
-        <br>
-        관계형 데이터베이스와의 비교를 통해 엘라스틱서치에서 쓰이는 용어를 표로 정리했다.<br>
-        <br>
-        <table style="font-size: 13px">
-          <thead>
-            <tr>
-              <th>RDB</th>
-              <th>ES</th>
-            </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>Database</td>
-            <td>Index</td>
-          </tr>
-          <tr>
-            <td>Table</td>
-            <td>Type</td>
-          </tr>
-          <tr>
-            <td>Row</td>
-            <td>Document</td>
-          </tr>
-          <tr>
-            <td>Column</td>
-            <td>Field</td>
-          </tr>
-          <tr>
-            <td>Index</td>
-            <td>Analyze</td>
-          </tr>
-          <tr>
-            <td>Primary key</td>
-            <td>_id</td>
-          </tr>
-          <tr>
-            <td>Schema</td>
-            <td>Mapping</td>
-          </tr>
-          <tr>
-            <td>Physical partition</td>
-            <td>shard</td>
-          </tr>
-          <tr>
-            <td>Logical partition</td>
-            <td>Route</td>
-          </tr>
-          <tr>
-            <td>Relational</td>
-            <td>Parent/Child, Nested</td>
-          </tr>
-          <tr>
-            <td>SQL</td>
-            <td>Query DSL</td>
-          </tr>
+        <ul>
+        <li><span style="font-size: 15px;"><b>Backup</b></span></li><br>
+          <span style="font-size: 15px;">Jenkins</span> 관리 > 플러그인 관리 > <span style="font-size: 15px;">ThinBackup</span> 설치
+        <image src="dev_ops_img/thinbackup.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image>
+          <br>
 
-          </tbody>
-        </table>
-        <br>
-        <br>
-        <table style="font-size: 13px">
-          <thead>
-          <tr>
-            <th>RDB CRUD</th>
-            <th>ES Restful API</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>SELECT</td>
-            <td>GET </td>
-          </tr>
-          <tr>
-            <td>INSERT </td>
-            <td>PUT</td>
-          </tr>
-          <tr>
-            <td>UPDATE</td>
-            <td>POST</td>
-          </tr>
-          <tr>
-            <td>DELETE</td>
-            <td>DELETE</td>
-          </tr>
-          </tbody>
-        </table>
+          <span style="font-size: 15px;">Jenkins</span> 관리 > <span style="font-size: 15px;">Tools and Actions > ThinBackup </span>
+        <image src="dev_ops_img/thinbackup_2.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image>
+        <br><br><span style="font-size: 15px;">Settings > </span><br><br>
+
+        <image src="dev_ops_img/thinbackup_3.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image>
+        <image src="dev_ops_img/thinbackup_4.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image>
+
+        <br><br>   <a style="color: #0d3b24; font-size: 13px;" href="jenkins_thinbackup_configuration.html"><span style="font-size: 15px">ThinBackup Configuration</span> 각 설정 상세내용 보기</a>
+
+      </ul>
+
+
         </p>
-        <br><br><br>
-        <a href="theory_1_Partition_VS_Shard.html" style="color: #0d3b24; font-size: 13px">📎 Link_>> &nbsp; Partition VS Shard </a>
-
-        <!--<p>Previously makesure you already install the <a href="https://pypi.org/project/django-recaptcha/"><code class="language-plaintext highlighter-rouge">django-recaptcha</code></a>,
-        don’t miss also to <a href="https://www.google.com/recaptcha/about/">Sign up for reCAPTCHA</a></p>-->
-
-        <!--      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install django-recaptcha
-      </code></pre></div></div>
-
-              <p>Add <code class="language-plaintext highlighter-rouge">'captcha'</code> to your <code class="language-plaintext highlighter-rouge">INSTALLED_APPS</code> setting.</p>
-
-              <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
-          <span class="p">...,</span>
-          <span class="s">'captcha'</span><span class="p">,</span>
-          <span class="p">...</span>
-      <span class="p">]</span>
-      </code></pre></div></div>
-
-              <p>Add the Google reCAPTCHA keys generated into your Django settings with <code class="language-plaintext highlighter-rouge">RECAPTCHA_PUBLIC_KEY</code> and <code class="language-plaintext highlighter-rouge">RECAPTCHA_PRIVATE_KEY</code>.</p>
-
-              <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">RECAPTCHA_PUBLIC_KEY</span> <span class="o">=</span> <span class="s">'MyRecaptchaKey123'</span>
-      <span class="n">RECAPTCHA_PRIVATE_KEY</span> <span class="o">=</span> <span class="s">'MyRecaptchaPrivateKey456'</span>
-      </code></pre></div></div>
-
-              <p>Then modify the default authentication form with add new captcha field, in your <code class="language-plaintext highlighter-rouge">myapp/forms.py</code>:</p>
-
-              <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
-      <span class="kn">from</span> <span class="nn">django.contrib.auth.forms</span> <span class="kn">import</span> <span class="n">AuthenticationForm</span>
-
-      <span class="kn">from</span> <span class="nn">captcha.fields</span> <span class="kn">import</span> <span class="n">ReCaptchaField</span>
-      <span class="kn">from</span> <span class="nn">captcha.widgets</span> <span class="kn">import</span> <span class="n">ReCaptchaV2Checkbox</span>
-
-
-      <span class="k">class</span> <span class="nc">AuthAdminForm</span><span class="p">(</span><span class="n">AuthenticationForm</span><span class="p">):</span>
-
-          <span class="k">if</span> <span class="ow">not</span> <span class="n">settings</span><span class="p">.</span><span class="n">DEBUG</span><span class="p">:</span>
-              <span class="n">captcha</span> <span class="o">=</span> <span class="n">ReCaptchaField</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">ReCaptchaV2Checkbox</span><span class="p">(</span>
-                  <span class="n">attrs</span><span class="o">=</span><span class="p">{</span>
-                      <span class="s">'data-theme'</span><span class="p">:</span> <span class="s">'light'</span><span class="p">,</span>
-                      <span class="s">'data-size'</span><span class="p">:</span> <span class="s">'normal'</span><span class="p">,</span>
-                      <span class="c1"># 'style': ('transform:scale(1.057);-webkit-transform:scale(1.057);'
-      </span>                <span class="c1">#           'transform-origin:0 0;-webkit-transform-origin:0 0;')
-      </span>            <span class="p">}</span>
-              <span class="p">))</span>
-      </code></pre></div></div>
-
-              <p>Then in your <code class="language-plaintext highlighter-rouge">myproject/urls.py</code>;</p>
-
-              <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
-      <span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
-
-      <span class="kn">from</span> <span class="nn">myapp.forms</span> <span class="kn">import</span> <span class="n">AuthAdminForm</span>
-
-      <span class="c1"># modify the default admin login form
-      # with add reCAPTCHA feature to fix bruteforce issue.
-      </span><span class="n">admin</span><span class="p">.</span><span class="n">autodiscover</span><span class="p">()</span>
-      <span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">login_form</span> <span class="o">=</span> <span class="n">AuthAdminForm</span>
-      <span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">login_template</span> <span class="o">=</span> <span class="s">'account/admin/login.html'</span>
-
-      <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-          <span class="n">path</span><span class="p">(</span><span class="s">'admin/'</span><span class="p">,</span> <span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">urls</span><span class="p">),</span>
-          <span class="p">...</span>
-      <span class="p">]</span>
-      </code></pre></div></div>
-
-              <p>Also don’t miss to add the captcha field into template <code class="language-plaintext highlighter-rouge">templates/account/admin/login.html</code>;</p>
-      -->
       </div>
       <br>
       <div>
