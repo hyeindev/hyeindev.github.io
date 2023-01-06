@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -43,6 +43,14 @@
       $("#nav_bar").load("../nav_child.html");
     });
   </script>
+  <style>
+    table {
+      width: 35%;
+    }
+    th,td {
+      padding-right: 1%;
+    }
+  </style>
 </head>
 <body>
 <div class="container">
@@ -53,27 +61,60 @@
   <div class="col-sm-8 col-offset-1 main-layout">
 
     <header class="post-header" style="margin-top: 7%">
-        <hr/>
-      <h1 class="post-title">1</h1>
+      <hr/>
+      <h1 class="post-title">레드마인에 다이어그램 작성</h1>
     </header>
 
-    <span class="time">17 Nov 2022</span>
-    <span class="time">- 저자의 의도</span>
-
+    <span class="time">05 Dec 2022</span>
+    <span class="time">- use Plugin</span>
+    <br><br>
     <div class="content">
       <div class="post" style="font-size: 13px">
-        <p >
-          이 책은 커뮤니케이션이 가능한 코드를 작성하기 위한 구현 패턴을 제시한다.<br>
-          다시말해, 코드 작업을 타인이 이해하기 쉽게 작성하는 방안에 대해 탐구한다.<br>
-          나는 지금보다 좀 더 협업을 위한 코드, 배려심 있는 프로그래밍을 알아보고자 이 책을 펼쳤다.
+        <p>
+        <ul>
+        <li>
+          <span style="font-size: 15px;">git-bash</span> 열어서 <span style="font-size: 15px;">Bitnami\redmine-5.0.0-1_\apps\redmine\htdocs\plugins</span> 경로 접근 <br>
+        </li>
+          <li>
+            레드마인 플러그인 깃 저장소에서 클론 <code>git clone -b main https://github.com/conveniencable/redmine_excel_connector</code>
+            <a style="font-size: 15px; color: #2a6496;" href="https://github.com/mikitex70/redmine_drawio">https://github.com/mikitex70/redmine_drawio</a> 에서 소스 클론
+          </li><br>
+        <image src="dev_ops_img/rd_excel_1.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image><br><br>
+        <li>
+          루비 cmd 켜서 레드마인 저장소 이동 후 <code>bundle exec rake redmine:plugins:migrate RAILS_ENV=production</code> 명령어 실행<br>
+        </li><br>
+          <li>
+            레드마인 재시작
+          </li>
+          <br>
+        <li>
+          엑셀 커넥터 다운로드<br>
+          <span style="font-size: 15px">reference :</span>  <a style="font-size: 15px; color: #2a6496;" href="https://github.com/conveniencable/RedmineExcelConnectorRelease/releases/tag/V1.0.0.6">https://github.com/conveniencable/RedmineExcelConnectorRelease/releases/tag/V1.0.0.6</a> 에서 설치파일 다운로드<br>
+          설치 방법 참고자료 : <a style="font-size: 15px; color: #2a6496;" href="https://conveniencable.com/documents/excel/excel#install">https://conveniencable.com/documents/excel/excel#install</a>
+        </li>
+        <image src="dev_ops_img/rd_excel_2.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image><br><br>
+        <br><br>
+
+        <li>
+          로컬에서 엑셀 실행 후 아래와 같은 팝업이 뜬다면 설치를 진행한다.<br>
+          <image src="dev_ops_img/rd_excel_3.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image><br><br>
+        </li>
+        <br><br>
+        <li>
+          엑셀 새 문서를 열면 생성 된 redmine 탭 클릭 후 open > 레드마인 URL 을 설정해준다.<br>
+          <image src="dev_ops_img/rd_excel_4.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image><br><br>
+        </li>
+
+
+        </ul>
+
+        https://mine-it-record.tistory.com/174
         </p>
-        <br><br><br>
-        <image width="40%" height="300" src="./implementationPatterns.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image>
       </div>
-        <br>
+      <br>
       <div>
         <span style="float: left; color: #0d3b24; font-size: 15px">Share &raquo;&nbsp; </span>
-          <span style="float: right"><a href="merits_and_demerits.html" style="color: #0d3b24; font-size: 15px"> &nbsp;Next&nbsp;&raquo; &nbsp;</a></span>
+        <span style="float: right"><a href="./2.html" style="color: #0d3b24; font-size: 15px"> &nbsp;Next&nbsp;&raquo; &nbsp;</a></span>
         <!-- Twitter -->
         <a href="https://twitter.com/share" class="twitter-share-button" data-via="github.io">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -92,7 +133,7 @@
 
     </div>
 
-      <br><br>
+    <br><br>
 
     <!-- 댓글 -->
     <!--<div class="disqus-comments">
@@ -118,10 +159,10 @@
 
       - <a href="https://github.com/hyeindev" ><span style="color: #0d3b24">https://github.com/hyeindev</span></a> - Powered by Jekyll.
 
-<!--      <div class="btn-github" style="float:right;">
-        <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=star&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
-        <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=fork&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
-      </div>-->
+      <!--      <div class="btn-github" style="float:right;">
+              <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=star&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
+              <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=fork&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
+            </div>-->
     </footer>
   </div>
   <!-- end /.col-sm-8 -->

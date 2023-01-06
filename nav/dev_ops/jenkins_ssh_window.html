@@ -43,6 +43,14 @@
       $("#nav_bar").load("../nav_child.html");
     });
   </script>
+  <style>
+    table {
+      width: 35%;
+    }
+    th,td {
+      padding-right: 1%;
+    }
+  </style>
 </head>
 <body>
 <div class="container">
@@ -53,27 +61,64 @@
   <div class="col-sm-8 col-offset-1 main-layout">
 
     <header class="post-header" style="margin-top: 7%">
-        <hr/>
+      <hr/>
       <h1 class="post-title">1</h1>
     </header>
 
-    <span class="time">17 Nov 2022</span>
-    <span class="time">- 저자의 의도</span>
-
+    <span class="time">29 Nov 2022</span>
+    <span class="time">- 깃, 젠킨스 연동</span>
+    <br><br>
     <div class="content">
       <div class="post" style="font-size: 13px">
-        <p >
-          이 책은 커뮤니케이션이 가능한 코드를 작성하기 위한 구현 패턴을 제시한다.<br>
-          다시말해, 코드 작업을 타인이 이해하기 쉽게 작성하는 방안에 대해 탐구한다.<br>
-          나는 지금보다 좀 더 협업을 위한 코드, 배려심 있는 프로그래밍을 알아보고자 이 책을 펼쳤다.
-        </p>
+        <p>
+        <ul>
+        <li><span style="font-size: 15px;">Jenkins</span>관리 > 시스템 설정 </li><br>
+        <image src="dev_ops_img/ssh.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image>
+        <br><br><br><br>
+        <li>페이지에서 <span style="font-size: 15px;">Publish over SSH</span> 검색 후 <span style="font-size: 15px;">SSH Servers</span> 설정 </li>
+        따로 SSH 설치하고 퍼블릭 키를 발급 할 필요 없이 Window 서버 원격 계정을 사용하면 된다.<br><br>
+        <image src="dev_ops_img/ssh_2.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image>
+        <br><br>
+        <table style="font-size: 13px; width: 100%">
+          <thead>
+          <tr>
+
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Name</td>
+            <td>서버 별명 (아무거나 입력해도 된다.) </td>
+          </tr>
+          <tr>
+            <td>Username </td>
+            <td>원격 서버의 접속 ID</td>
+          </tr>
+          <tr>
+            <td>Remote Directory</td>
+            <td>원격 서버에 접속하여 작업하게 될 기준 디렉토리</td>
+          </tr>
+          <tr>
+            <td>Passphrase / Password</td>
+            <td>원격 서버의 접속 Password</td>
+          </tr>
+          </tbody>
+        </table>
         <br><br><br>
-        <image width="40%" height="300" src="./implementationPatterns.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image>
+        원격 계정은 윈도우에서 제공하는 '원격 데스크톱 연결' 로 테스트 가능하다.<br><br>
+        <image src="dev_ops_img/ssh_3.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image>
+        <br><br><br>
+        <li>여기까지 설정 끝났으면 우측 하단에 <span style="font-size: 15px;"> Test Configuration </span> 버튼 클릭 > Success 문구가 뜨면 SSH 접속 성공이다. </li><br>
+        <image src="dev_ops_img/ssh_4.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image>
+      </ul>
+
+
+        </p>
       </div>
-        <br>
+      <br>
       <div>
         <span style="float: left; color: #0d3b24; font-size: 15px">Share &raquo;&nbsp; </span>
-          <span style="float: right"><a href="merits_and_demerits.html" style="color: #0d3b24; font-size: 15px"> &nbsp;Next&nbsp;&raquo; &nbsp;</a></span>
+        <span style="float: right"><a href="./2.html" style="color: #0d3b24; font-size: 15px"> &nbsp;Next&nbsp;&raquo; &nbsp;</a></span>
         <!-- Twitter -->
         <a href="https://twitter.com/share" class="twitter-share-button" data-via="github.io">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -92,7 +137,7 @@
 
     </div>
 
-      <br><br>
+    <br><br>
 
     <!-- 댓글 -->
     <!--<div class="disqus-comments">
@@ -118,10 +163,10 @@
 
       - <a href="https://github.com/hyeindev" ><span style="color: #0d3b24">https://github.com/hyeindev</span></a> - Powered by Jekyll.
 
-<!--      <div class="btn-github" style="float:right;">
-        <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=star&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
-        <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=fork&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
-      </div>-->
+      <!--      <div class="btn-github" style="float:right;">
+              <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=star&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
+              <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=fork&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
+            </div>-->
     </footer>
   </div>
   <!-- end /.col-sm-8 -->

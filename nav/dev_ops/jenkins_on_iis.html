@@ -43,6 +43,14 @@
       $("#nav_bar").load("../nav_child.html");
     });
   </script>
+  <style>
+    table {
+      width: 35%;
+    }
+    th,td {
+      padding-right: 1%;
+    }
+  </style>
 </head>
 <body>
 <div class="container">
@@ -53,27 +61,66 @@
   <div class="col-sm-8 col-offset-1 main-layout">
 
     <header class="post-header" style="margin-top: 7%">
-        <hr/>
+      <hr/>
       <h1 class="post-title">1</h1>
     </header>
 
-    <span class="time">17 Nov 2022</span>
-    <span class="time">- 저자의 의도</span>
-
+    <span class="time">01 Dec 2022</span>
+    <span class="time">- iis 프록시를 이용하여 젠킨스 도메인 설정하기</span>
+    <br><br>
     <div class="content">
       <div class="post" style="font-size: 13px">
-        <p >
-          이 책은 커뮤니케이션이 가능한 코드를 작성하기 위한 구현 패턴을 제시한다.<br>
-          다시말해, 코드 작업을 타인이 이해하기 쉽게 작성하는 방안에 대해 탐구한다.<br>
-          나는 지금보다 좀 더 협업을 위한 코드, 배려심 있는 프로그래밍을 알아보고자 이 책을 펼쳤다.
-        </p>
+        <p>
+        <ul>
+          <li>IIS에 젠킨스 사이트 생성 </li><br>
+        <image src="dev_ops_img/iis_1.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image><br>바인딩 > 호스트 이름 > 도메인을 입력<br><br><br><br>
+
+        <li>URL 재작성 </li><br>
+        <image src="dev_ops_img/iis_2.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image><br><br><br><br>
+        <li>역방향 프록시 선택 </li><br>
+        <image src="dev_ops_img/iis_3.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image><br><br><br><br>
+        <li>로컬 IP 와 젠킨스 실행 포트를 입력 후 확인 </li><br>
+        <image src="dev_ops_img/iis_4.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image><br><br><br><br>
+        <li>조건 추가 </li><br>
+        <image src="dev_ops_img/iis_5.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image><br><br>
+        조건 입력 : {CACHE_URL}<br>
+        패턴 : ^(http|ws)s:// <br>
         <br><br><br>
-        <image width="40%" height="300" src="./implementationPatterns.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image>
-      </div>
+        <li>서버 변수 추가 </li><br>
+        <image src="dev_ops_img/iis_6.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image><br>
+        서버 변수 이름 : HTTP_FORWARDED<br>
+        값 : for={REMOTE_ADDR};by={LOCAL_ADDR};host="{HTTP_HOST}";p roto="https"<br>
+        기존 값 바꾸기 체크
+        <br><br><br>
+        <li>작업 > URL 재작성 수정 </li><br>
+        <image src="dev_ops_img/iis_7.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image><br>
+        URL 재작성 : {C:1}://127.0.0.1:8082{UNENCODED_URL}<br>
+        쿼리 문자열 추가 체크해제
+        <br><br><br>
+
+        <li> 서버변수 추가 </li><br>
+        <image src="dev_ops_img/iis_8.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image><br><br>
+        <image src="dev_ops_img/iis_9.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image><br><br><br><br>
+
+
+        <li> <span style="font-size: 15px">Jenkins</span> 관리 > <span style="font-size: 15px">Jenkins URL</span> 을 IIS 에 바인딩한 도메인으로 변경  </li><br>
+        <image src="dev_ops_img/iis_10.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image><br><br><br><br>
+
+        <li> <span style="font-size: 15px">https://jenkins.domain/restart</span>  로 젠킨스 재시작하면 적용 완료 !  </li><br>
+        <image src="dev_ops_img/iis_11.png" allowfullscreen="allowfullscreen" allowpaymentrequest="" frameborder="0"></image><br><br><br><br>
+
+
+        <span style="float: left; color: #0d3b24; font-size: 15px">Reference : <a href="https://wiki.jenkins.io/JENKINS/Running-Jenkins-behind-IIS.html">https://wiki.jenkins.io/JENKINS/Running-Jenkins-behind-IIS.html</a></span>
         <br>
+      </ul>
+
+
+        </p>
+      </div>
+      <br>
       <div>
         <span style="float: left; color: #0d3b24; font-size: 15px">Share &raquo;&nbsp; </span>
-          <span style="float: right"><a href="merits_and_demerits.html" style="color: #0d3b24; font-size: 15px"> &nbsp;Next&nbsp;&raquo; &nbsp;</a></span>
+        <span style="float: right"><a href="./2.html" style="color: #0d3b24; font-size: 15px"> &nbsp;Next&nbsp;&raquo; &nbsp;</a></span>
         <!-- Twitter -->
         <a href="https://twitter.com/share" class="twitter-share-button" data-via="github.io">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -92,7 +139,7 @@
 
     </div>
 
-      <br><br>
+    <br><br>
 
     <!-- 댓글 -->
     <!--<div class="disqus-comments">
@@ -118,10 +165,10 @@
 
       - <a href="https://github.com/hyeindev" ><span style="color: #0d3b24">https://github.com/hyeindev</span></a> - Powered by Jekyll.
 
-<!--      <div class="btn-github" style="float:right;">
-        <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=star&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
-        <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=fork&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
-      </div>-->
+      <!--      <div class="btn-github" style="float:right;">
+              <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=star&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
+              <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=fork&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
+            </div>-->
     </footer>
   </div>
   <!-- end /.col-sm-8 -->
