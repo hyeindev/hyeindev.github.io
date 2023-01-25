@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/static/img/favicon.ico" />
+  <title>implementationPatterns - 5</title>
+  <meta name="author" content="hyeindev" />
+  <meta name="description" content="about development" />
+  <meta name="keywords" content="development, jekyll, ruby, python, django, bash, raspberry, others, security, codefights, nginx, server, ssl, linux, ubuntu" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+  <meta content="1749788565247320" property="fb:app_id">
+  <meta content="hyeindev.blog" property="og:site_name">
+  <meta content="hyeindev.blog" property="og:title">
+  <meta content="website" property="og:type">
+  <meta content="about development" property="og:description">
+  <meta content="http://localhost:4000/" property="og:url">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@github.io">
+  <meta name="twitter:creator" content="@github.io">
+  <meta name="twitter:title" content="hyeindev.blog">
+  <meta name="twitter:url" content="http://localhost:4000/">
+  <meta name="twitter:description" content="about development">
+
+  <!-- Font awesome icons -->
+  <link href="/static/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/static/css/syntax.css">
+  <!-- Bootstrap core CSS -->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300italic,300,400italic,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/static/css/super-search.css">
+  <link rel="stylesheet" href="/static/css/thickbox.css">
+  <link rel="stylesheet" href="/static/css/projects.css">
+  <link rel="stylesheet" href="/static/css/main.css">
+
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#nav_bar").load("../nav_child.html");
+    });
+  </script>
+</head>
+<body>
+<div class="container">
+  <div id="nav_bar" class="col-sm-3">
+
+    <!-- end /.fixed-condition -->
+  </div>
+  <div class="col-sm-8 col-offset-1 main-layout">
+
+    <header class="post-header" style="margin-top: 7%">
+      <hr/>
+      <h1 class="post-title">1</h1>
+    </header>
+
+    <span class="time">24 Jan 2023</span>
+    <span class="time"> start java</span>
+
+    <div class="content">
+      <div class="post" style="font-size: 13px">
+      자바란? 프로그래밍 언어<br>
+      <pre>
+jdk = java development kit
+jre = java runtime environment
+jvm = java virtual machine
+      </pre>
+      jdk를 설치하면 호환되는 jre이 포함되어있고, jre는 자바클래스라이브러리(jcl),jvm을 포함하고있음<br>
+      <br><br>
+
+        <b>프로그램 실행 과정</b>
+        <br>
+        프로그래밍을 하면 java 파일을 컴파일러가 기계어(바이트코드)로 변환하고, 이것을 jvm이 읽고 실행한다.
+
+        <br><br>
+        컴파일러(javac.exe)는 jdk에 포함되어있음
+        <br><br>
+        가상머신은 서로 다른 실행환경에서도 프로그램이 실행되게끔 해준다<br>
+        마이크로소프트웨어의 .NET도 CLR(common language runtime)이라는 소프트웨어 가상기계에서 실행됨
+<br><br>
+
+        <b>jdk 설치 후 컴파일러와 jvm이 동작하는 과정을 직접 해보기</b><br>
+        메모장에 아래 코드를 입력 후 (클래스명).java 파일로 저장해보자
+        <pre>
+public class Test {
+    public static void main(String[] args) {
+        System.out.println("Hello world");
+    }
+}
+        </pre>
+        <br>
+        cmd를 켜고 해당 java파일 경로에서 다음 명령어를 실행
+        <pre>
+javac Test.java
+        </pre>
+        <br>
+        컴파일러가 작동하여 .java 파일을 바이트코드로 작성된 .class 파일로 변환한것이 확인됨<br>
+        이제 jvm을 동작시켜보자<br>
+
+        <pre>
+java Test
+        </pre>
+
+        <br>
+        프로그래밍한 대로 실행되는 것을 확인할 수 있다!
+        <br><br>
+      </div>
+      <div>
+        <span style="float: left; color: #0d3b24; font-size: 15px">Share &raquo;&nbsp; </span>
+        <span style="float: right"><a href="./example.html" style="color: #0d3b24; font-size: 15px"> &nbsp;Next&nbsp;&raquo; &nbsp;</a></span>
+        <!-- Twitter -->
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="github.io">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+        <!-- Facebook -->
+        <!--<div class="fb-share-button" data-href="http://localhost:4000/python/django/security/2021/10/06/add-recaptcha-to-default-django-admin-login-form.html" data-layout="button_count" style="position: relative; top: -8px; left: 3px;"></div>-->
+      </div>
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1749788565247320";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+    </div>
+
+    <br><br>
+
+    <!-- 댓글 -->
+    <!--<div class="disqus-comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript" >
+        /* <![CDATA[ */
+        var disqus_shortname = "stackproblems";
+        var disqus_identifier = "http://localhost:4000_소개";
+        var disqus_title = "소개";
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        /* ]]> */
+      </script>
+    </div>-->
+
+    <footer>
+      &copy; hyeindev
+
+      - <a href="https://github.com/hyeindev">https://github.com/hyeindev</a> - Powered by Jekyll.
+
+      <!--      <div class="btn-github" style="float:right;">
+              <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=star&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
+              <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=fork&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
+            </div>-->
+    </footer>
+  </div>
+  <!-- end /.col-sm-8 -->
+</div>
+<!-- end /.container -->
+
+<!-- Bootstrap core JavaScript -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/super-search.js"></script>
+<script src="/static/js/thickbox-compressed.js"></script>
+<script src="/static/js/projects.js"></script>
+</body>
+</html>
+
